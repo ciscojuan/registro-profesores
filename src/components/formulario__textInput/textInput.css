@@ -1,0 +1,24 @@
+.input{
+    font-family: 'Montserrat', sans-serif;
+    margin: 25px 0;
+}
+.input label{
+    top:18px;
+    left: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+.input input{
+    width: 100%;
+    background-color: #fff;
+    border-style: 10px 10px 30px rgba(0,0,0,0.06);
+    border: none;
+    border-radius: 10px;
+    color:#444;
+    outline-color: #6278f7;
+    padding: 30px 20px;
+}
+
