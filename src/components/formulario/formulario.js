@@ -8,6 +8,7 @@ const Formulario = () => {
   const [nombre, setNombre] = useState("");
   const [ocupacion, setOcupacion] = useState("");
   const [foto, setFoto] = useState("");
+  const [equipo, setEquipo] = useState('')
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -43,8 +44,8 @@ const Formulario = () => {
           setValor={setFoto}
           required
         />
-        <Select />
-        <Boton />
+        <Select valor={equipo} setValor={setEquipo}/>
+        <Boton /> 
       </form>
     </section>
   );
