@@ -4,7 +4,7 @@ import TextInput from "./formulario__textInput";
 import Select from "./formulario__select";
 import Boton from "./formulario__boton";
 
-const Formulario = () => {
+const Formulario = (props) => {
   const [nombre, setNombre] = useState("");
   const [ocupacion, setOcupacion] = useState("");
   const [foto, setFoto] = useState("");
@@ -44,7 +44,7 @@ const Formulario = () => {
           setValor={setFoto}
           required
         />
-        <Select valor={equipo} setValor={setEquipo}/>
+        <Select valor={equipo} setValor={setEquipo} equipos={props.equipos}/>
         <Boton /> 
       </form>
     </section>
