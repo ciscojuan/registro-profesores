@@ -1,15 +1,30 @@
+import './App.css';
 import { useState } from 'react';
 import Header  from './components/header/header.js'
 import Formulario from './components/formulario/formulario';
 import MiOrganizacion from './components/miOrganizacion';
-import './App.css';
 import Equipo from './components/equipo/index.js';
+import Footer from './components/footer';
 
 function App() {
   const[mostrar, SetMostar] = useState(false);
+  const[colaboradores, setColaboradores] = useState([
+    {
+      'nombre': 'Juan Ramirez',
+      'ocupacion': 'Desarrollador',
+      'foto': 'https://github.com/ciscojuan.png',
+      'equipo' : 'Front End'
+    }
+  ])
 
   const mostrarForm = () => {
     SetMostar(!mostrar)
+  }
+  //Registrar Colaborador
+  const addColaborador = (colaborador) => {
+    console.log(colaborador)
+    //spread operator -> copia del arreglo
+    setColaboradores([...colaboradores, colaborador])
   }
 
   const equipos = [
@@ -50,14 +65,22 @@ function App() {
     }
   ]
 
+
   return (
     <div >
         <Header />
-        {mostrar ? <Formulario equipos={equipos.map((equipo) => equipo.titulo)} /> : <></>}
+        {mostrar ? <Formulario
+         equipos={equipos.map((equipo) => equipo.titulo)}  
+         addColaborador={addColaborador}/> : <></>}
+
         <MiOrganizacion showForm={mostrarForm}/>
         {
-          equipos.map((equipo,index )=> <Equipo datos={equipo} key={index}/> )
+          equipos.map((equipo )=> <Equipo 
+          datos={equipo} 
+          key={equipo.titulo}
+          colaboradores={colaboradores.filter(colaborador => colaborador.equipo === equipo.titulo)}/> )
         }
+        <Footer />
     </div>
   );
 }

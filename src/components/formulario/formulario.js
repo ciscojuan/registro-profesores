@@ -13,11 +13,13 @@ const Formulario = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log("mensaje enviado");
-    console.log({
+    let data = {
         nombre,
         ocupacion,
-        foto
-    })
+        foto,
+        equipo
+    }
+    props.addColaborador(data)
   };
   return (
     <section className="formulario">
